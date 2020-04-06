@@ -1,0 +1,23 @@
+' ticker symbol
+' volume of stock
+' open price
+' close price
+
+
+' Greatest % Increase
+' Greatest % Decrease
+' Greatest Total Volume
+
+
+HW2-Hints.xlsm
+--------------
+
+Sub seeDogs()
+    Dim lastRow As Integer
+    Dim i As Integer
+    Dim dogName As String
+    
+    lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+    MsgBox (lastRow)
+
+End Sub

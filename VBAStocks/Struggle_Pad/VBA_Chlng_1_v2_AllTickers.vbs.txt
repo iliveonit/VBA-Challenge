@@ -1,0 +1,78 @@
+Sub ShowTicker()
+
+    'Basic Declaration
+    Dim lastRow As Integer
+    
+    Dim i As Integer  'Row Counter for all Tickets in ColA
+    Dim j As Integer  'Row Counter to write Tickter in ColI
+    j = 2             'Start population Column I and Column J at Row=2
+    
+    'Need to show below for HW2
+    Dim Ticker As String
+    
+    Dim Yearly_Change As Integer
+    Yearly_Change = 0
+    
+    Dim Percentage_Change As Integer
+    Percentage_Change = 0
+    
+    Dim Total_Stock_Volume As Integer
+    
+
+    'Declared for my Calc
+    Dim OpenPrice As Integer
+    OpenPrice = 0
+    
+    Dim ClosePrice As Integer
+    ClosePrice = 0
+    
+    Dim Greatest_PctIncr As Integer
+    Greatest_PctIncr = 0
+    
+    Dim Greatest_PctDecr As Integer
+    Greatest_PctDecr = 0
+    
+    Ticker = Range("I2").Value
+    Total_Stock_Volume = Range("J2").Value
+    
+    'lastRow = 2
+    
+    lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+    MsgBox (lastRow)
+    
+    'Check Ticker Column'For i = 2 To 263
+    'i = 4
+    'MsgBox i
+    
+    For i = 2 To lastRow
+    
+    Ticker = Range("A2")
+    MsgBox Ticker
+    
+    'Reset Total Stock Volume Counter to 0
+    Total_Stock_Volume = 0
+    
+    If Cells(i + 1, Column).Value = Cells(i, Column).Value Then
+    
+      Ticker = Cells(i, Column).Value
+      Total_Stock_Volume = Total_Stock_Volume + Range("Gi").Value
+      
+    Else
+    Range("Ij").Value = Ticker
+    Range("Jj").Value = Total_Stock_Volume
+    MsgBox Total_Stock_Volume
+    
+    'Assign unmatched Ticker symbol to new loop-check
+    Ticker = Cells(i + 1, Column).Value
+    
+    'Increments the Column I and Column J counter (j) for new Ticker
+    j = j + 1
+    
+    MsgBox j
+    
+    End If
+    
+    Next i
+
+End Sub
+
